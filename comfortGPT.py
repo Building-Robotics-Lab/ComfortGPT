@@ -28,7 +28,7 @@ def ComfortGPT(df, Input_OT=None, alpha=0.8, threshold=5, cutoff=16):
     for j in range(0, len(df)):
         if j == 0:
             Predict_250_c = df['Tout'][j] * df_c['Slope_cool'] + df_c['Intercept_cool']
-            setpoint_list = np.repeat(df['MixedSetPoints'][j], 250)
+            setpoint_list = np.repeat(df['Setpoint'][j], 250)
             Error_250_c = (Predict_250_c - setpoint_list) ** 2
             Error_250_c_list.append(Error_250_c.tolist())
             matrix_from_nested_list = np.matrix(Error_250_c_list).T
@@ -37,7 +37,7 @@ def ComfortGPT(df, Input_OT=None, alpha=0.8, threshold=5, cutoff=16):
                 'Slope': df_c.loc[minindex_cooling, 'Slope_cool'],
                 'Intercept': df_c.loc[minindex_cooling, 'Intercept_cool'],
                 'Related_Tout': df.loc[j, 'Tout'],
-                'Related_input_setpoint': df.loc[j, 'MixedSetPoints']
+                'Related_input_setpoint': df.loc[j, 'Setpoint']
             }, index=[0])  # or replace 0 with a specific index if needed
             Optimal_slo_inter_cooling = pd.concat([Optimal_slo_inter_cooling, Data_combine_cooling], ignore_index=True)
             Outdoor_Tc_weight_list.append(df['Tout'][j])
@@ -45,9 +45,9 @@ def ComfortGPT(df, Input_OT=None, alpha=0.8, threshold=5, cutoff=16):
         else:
             Predicted_c = df['Tout'][j] * df_c['Slope_cool'][minindex_cooling] + df_c['Intercept_cool'][minindex_cooling]
             Predict_cooling_True.append(Predicted_c)
-            true_error_cooling.append(abs(Predicted_c - df['MixedSetPoints'][j]))
+            true_error_cooling.append(abs(Predicted_c - df['Setpoint'][j]))
             Predict_250_c = df['Tout'][j] * df_c['Slope_cool'] + df_c['Intercept_cool']
-            setpoint_list = np.repeat(df['MixedSetPoints'][j], 250)
+            setpoint_list = np.repeat(df['Setpoint'][j], 250)
             Error_250_c = (Predict_250_c - setpoint_list) ** 2
             Error_250_c_list.append(Error_250_c.tolist())
             matrix_from_nested_list = np.matrix(Error_250_c_list).T
@@ -79,7 +79,7 @@ def ComfortGPT(df, Input_OT=None, alpha=0.8, threshold=5, cutoff=16):
                 'Slope': df_c.loc[minindex_cooling, 'Slope_cool'],
                 'Intercept': df_c.loc[minindex_cooling, 'Intercept_cool'],
                 'Related_Tout': df.loc[j, 'Tout'],
-                'Related_input_setpoint': df.loc[j, 'MixedSetPoints']
+                'Related_input_setpoint': df.loc[j, 'Setpoint']
             }, index=[0])  # or replace 0 with a specific index if needed
             Optimal_slo_inter_cooling = pd.concat([Optimal_slo_inter_cooling, Data_combine_cooling], ignore_index=True)
 
@@ -87,7 +87,7 @@ def ComfortGPT(df, Input_OT=None, alpha=0.8, threshold=5, cutoff=16):
     for j in range(0, len(df)):
         if j == 0:
             Predict_250_h = df['Tout'][j] * df_h['Slope_heat'] + df_h['Intercept_heat']
-            setpoint_list_h = np.repeat(df['MixedSetPoints'][j], 250)
+            setpoint_list_h = np.repeat(df['Setpoint'][j], 250)
             Error_250_h = (Predict_250_h - setpoint_list_h) ** 2
             Error_250_h_list.append(Error_250_h.tolist())
             matrix_from_nested_list_h = np.matrix(Error_250_h_list).T
@@ -102,9 +102,9 @@ def ComfortGPT(df, Input_OT=None, alpha=0.8, threshold=5, cutoff=16):
         else:
             Predicted_h = df['Tout'][j] * df_h['Slope_heat'][minindex_heating] + df_h['Intercept_heat'][minindex_heating]
             Predict_heating_True.append(Predicted_h)
-            true_error_heating.append(abs(Predicted_h - df['MixedSetPoints'][j]))
+            true_error_heating.append(abs(Predicted_h - df['Setpoint'][j]))
             Predict_250_h = df['Tout'][j] * df_h['Slope_heat'] + df_h['Intercept_heat']
-            setpoint_list_h = np.repeat(df['MixedSetPoints'][j], 250)
+            setpoint_list_h = np.repeat(df['Setpoint'][j], 250)
             Error_250_h = (Predict_250_h - setpoint_list_h) ** 2
             Error_250_h_list.append(Error_250_h.tolist())
             matrix_from_nested_list_h = np.matrix(Error_250_h_list).T
