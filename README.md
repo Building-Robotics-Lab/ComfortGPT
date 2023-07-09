@@ -26,6 +26,6 @@ The ComfortGPT function returns a list containing the following:
 
 - You can call the ComfortGPT function in two different ways:
   - Without **Input_OT**: This will return the latest comfort profiles for both cooling and heating scenarios
-    - `results_without_InputOT = ComfortGPT(df=df_new)` <br />
+    - `results_without_InputOT = ComfortGPT(df=df_new)` <br /><br />
   - With **Input_OT**: This will return the setpoint prediction for the given outdoor temperature:
     - `results_with_InputOT = ComfortGPT(df=df_new, Input_OT=21)`
