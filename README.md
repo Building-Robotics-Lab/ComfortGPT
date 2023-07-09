@@ -22,10 +22,12 @@ The ComfortGPT function returns a list containing the following:
 
 # Usage
 - Clone the repository using `git clone https://github.com/Building-Robotics-Lab/ComfortGPT.git`
-- In the `Call function.py` file, modify the value assigned to the dataframe variable to reflect the location of your CSV file by replacing '../example.csv' with the file path of your CSV file.
+- In the `Call function.py` file, modify the value assigned to the dataframe variable to reflect the location of your CSV file by replacing '../example.csv' with the file path of your CSV file. <br /><br />
 
-- You can call the ComfortGPT function in two different ways:
+- You can call the ComfortGPT function in two different ways in `Call function.py`:
   - Without **Input_OT**: This will return the latest comfort profiles for both cooling and heating scenarios
     - `results_without_InputOT = ComfortGPT(df=df_new)` <br /><br />
   - With **Input_OT**: This will return the setpoint prediction for the given outdoor temperature:
     - `results_with_InputOT = ComfortGPT(df=df_new, Input_OT=21)`
+<br /><br />
+- Run the `Call function.py` file to get the output from the ComfortGPT function
