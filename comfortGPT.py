@@ -154,4 +154,4 @@ def ComfortGPT(df, Input_OT=None, alpha=0.8, threshold=5, cutoff=16):
         print(f"Latest comfort profile for cooling season: The slope is: {latest_optimal_cooling['Slope'].values[0]} and the intercept is {latest_optimal_cooling['Intercept'].values[0]}. The Setpoint can be calculated by: Slope * Outdoor_temperature + Intercept")
         print(f"Latest comfort profile for heating season: The slope is: {latest_optimal_heating['Slope'].values[0]} and the intercept is {latest_optimal_heating['Intercept'].values[0]}. The Setpoint can be calculated by: Slope * Outdoor_temperature + Intercept")
 
-    return [Optimal_slo_inter_cooling, Optimal_slo_inter_heating]
+    return [Optimal_slo_inter_cooling, Optimal_slo_inter_heating, latest_optimal_cooling, latest_optimal_heating]
