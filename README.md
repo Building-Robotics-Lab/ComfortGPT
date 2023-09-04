@@ -1,5 +1,9 @@
 # ComfortGPT
 
+# About
+ComfortGPT employs generative pre-trained models built on the data from thousands of ECOBEE thermostat users, to directly predict temperature setpoints while minimizing the reliance on occupant interactions.
+Check out the interactive ComfortGPT website at [BRL - ComfortGPT](https://blank-ed.github.io/BRLab/comfortGPT.html)
+
 # Dependencies
 Make sure to have the following packages installed using the command
 - `pip install pandas`
@@ -21,6 +25,7 @@ The ComfortGPT function returns a list containing the following:
 - **latest_optimal_heating**: The most current intercept and slope for heating days.
 
 # Usage
+- *Note: For the best user experience, use PyCharm or Jupyter Notebook IDE*
 - Clone the repository using `git clone https://github.com/Building-Robotics-Lab/ComfortGPT.git`
 - In the `Call function.py` file, modify the value assigned to the dataframe variable to reflect the location of your CSV file by replacing '../example.csv' with the file path of your CSV file. <br /><br />
 
