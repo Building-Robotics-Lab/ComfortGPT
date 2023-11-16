@@ -2,7 +2,7 @@
 
 # About
 ComfortGPT employs generative pre-trained models built on the data from thousands of ECOBEE thermostat users, to directly predict temperature setpoints while minimizing the reliance on occupant interactions.
-Check out the interactive ComfortGPT website at [BRL - ComfortGPT](https://building-robotics-lab.github.io/brlab/#/comfortgpt)
+Check out the interactive ComfortGPT Tool at [BRL - ComfortGPT](https://building-robotics-lab.github.io/brlab/#/comfortgpt)
 
 # Dependencies
 Make sure to have the following packages installed using the command
